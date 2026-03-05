@@ -1,4 +1,10 @@
-module.exports = {
-  reactStrictMode: true,
-  // Add your custom configuration here
+'use strict';
+
+const nextConfig = {
+    reactStrictMode: true,
+    env: {
+        CUSTOM_VAR: 'your_value_here',
+    },
 };
+
+module.exports = nextConfig;
