@@ -1,24 +1,30 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  images: {
-    domains: ['example.com', 'another-example.com'], // add your allowed domains for image optimization
-    deviceSizes: [640, 750, 1080, 1920], // sizes for responsive images
-    imageSizes: [16, 32, 48, 64, 75, 96], // additional sizes for images
-  },
-  api: {
-    bodyParser: true, // enable body parsing for API routes
-    externalResolver: true, // use denormalized resolver for API routes
-  },
-  productionBrowserSourceMaps: true, // enable source maps for production
-  env: {
-    // You can specify environment variables here
-    API_URL: process.env.API_URL || 'https://api.example.com',
-  },
-  webpack: (config) => {
-    // Custom Webpack configurations
-    return config;
-  },
-};
+// next.config.js
 
-module.exports = nextConfig;
+module.exports = {
+  // Enabling React Strict Mode for better debugging
+  reactStrictMode: true,
+
+  // Optimizing images
+  images: {
+    domains: ['example.com'], // Replace with your trusted image domains
+    deviceSizes: [640, 750, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96],
+  },
+
+  // Setting up API routes
+  api: {
+    bodyParser: true, // Enable body parsing for API routes
+    externalResolver: true, // Recommended for API responses
+  },
+
+  // Configuring serverless function settings
+  experimental: {
+    serverless: true, // Enables serverless deployment capabilities
+  },
+
+  // Configuring webpack if needed
+  webpack: (config) => {
+    // Additional webpack configuration if required
+    return config;
+  }
+};
